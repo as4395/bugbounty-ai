@@ -1,0 +1,10 @@
+beautifulsoup4
+selenium
+requests
+requests_oauthlib
+nmap
+pyshodan
+openai
+pandas
+numpy
+flask
