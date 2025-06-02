@@ -1,0 +1,14 @@
+sites:
+  - https://hackerone.com
+  - https://bugcrowd.com
+  - https://intigriti.com
+
+filters:
+  min_reward: 500
+  max_reward: 1000
+  allowed_vuln_types:
+    - XSS
+    - SQL Injection
+    - RCE
+    - CSRF
+    - IDOR
