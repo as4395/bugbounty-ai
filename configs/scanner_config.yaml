@@ -1,0 +1,11 @@
+nmap:
+  top_ports: 100
+  timeout: 300  # seconds
+
+shodan:
+  api_key: SHODAN_API_KEY
+  query: "product:apache"
+
+targets:
+  - 8.8.8.8
+  - 1.1.1.1
