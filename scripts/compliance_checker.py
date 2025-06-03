@@ -16,20 +16,30 @@ def load_report(filename):
 def check_compliance(report_df, rules):
     print("Checking compliance...")
     flagged = []
-    blacklist = rules.get('blacklist', [])
+
+    blacklist_ips = rules.get('blacklist_ips', [])
+    blacklist_domains = rules.get('blacklist_domains', [])
+
     for _, row in report_df.iterrows():
-        if row['ip'] in blacklist:
-            flagged.append(row['ip'])
+        domain = row.get('domain', '')
+        ip = row.get('ip', '')
+
+        if ip and ip in blacklist_ips:
+            flagged.append(f"IP: {ip}")
+        if domain and any(bad_domain in domain for bad_domain in blacklist_domains):
+            flagged.append(f"Domain: {domain}")
+
     return flagged
 
 def main():
     rules = load_rules('configs/platform_rules.yaml')
     report_df = load_report('reports/report.csv')
-    flagged_ips = check_compliance(report_df, rules)
-    if flagged_ips:
-        print("Non-compliant IPs found:")
-        for ip in flagged_ips:
-            print(f"- {ip}")
+    flagged_items = check_compliance(report_df, rules)
+
+    if flagged_items:
+        print("Non-compliant items found:")
+        for item in flagged_items:
+            print(f"- {item}")
     else:
         print("All reports compliant.")
     print("Compliance check completed.")
