@@ -1,10 +1,13 @@
-blacklist:
-  - 192.168.1.1
-  - 10.0.0.1
-  - 127.0.0.1
+# Platform compliance rules for HackerOne, Bugcrowd, Intigriti
 
-allowed_domains:
-  - example.com
-  - testsite.org
+# These lists are only filled if specific programs or assets need to be excluded.
 
-max_requests_per_minute: 30
+blacklist_ips: []
+
+blacklist_domains: []
+
+rate_limit_per_site: 30  # requests per minute
+
+allowed_hours_utc:
+  start: "00:00"
+  end: "23:59"
