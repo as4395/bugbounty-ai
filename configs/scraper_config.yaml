@@ -1,14 +1,19 @@
+# Public program scraping configuration
+
 sites:
-  - https://hackerone.com
-  - https://bugcrowd.com
-  - https://intigriti.com
+  - https://hackerone.com/directory
+  - https://bugcrowd.com/programs
+  - https://app.intigriti.com/programs
 
 filters:
   min_reward: 500
-  max_reward: 1000
+  max_reward: 10000
   allowed_vuln_types:
     - XSS
     - SQL Injection
     - RCE
     - CSRF
     - IDOR
+
+max_pages_per_site: 10
+request_delay_seconds: 1
