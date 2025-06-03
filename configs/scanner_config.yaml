@@ -1,11 +1,12 @@
+# Scanner configuration
+
 nmap:
   top_ports: 100
-  timeout: 300  # seconds
+  timeout: 300
+  arguments: "-sS -T4"
 
 shodan:
-  api_key: SHODAN_API_KEY
-  query: "product:apache"
+  api_key: "SHODAN_API_KEY"  # Your valid Shodan API key
+  max_results: 50
 
-targets:
-  - 8.8.8.8
-  - 1.1.1.1
+output_file: "data/processed/findings.json"
