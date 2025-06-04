@@ -1,57 +1,95 @@
+# Purpose:
+# Use Selenium to load Bugcrowd programs, then Requests + BeautifulSoup to scrape details.
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+import time
 import requests
 from bs4 import BeautifulSoup
+import csv
 
-def scrape_bugcrowd(session_cookie):
-    print("Scraping Bugcrowd (with login)...")
-    base_url = "https://bugcrowd.com"
-    programs_url = f"{base_url}/programs"
-    programs = []
+def scrape_bugcrowd(session_cookie, output_file='data/raw/bugcrowd_targets.csv'):
+    print("Launching Selenium browser for program listing...")
+
+    # Set up Selenium
+    options = Options()
+    options.headless = True
+    driver = webdriver.Chrome(options=options)
+
+    try:
+        driver.get("https://bugcrowd.com/")
+        driver.add_cookie({
+            'name': '_crowdcontrol_session',
+            'value': session_cookie,
+            'domain': 'bugcrowd.com',
+            'path': '/',
+            'secure': True,
+            'httpOnly': True
+        })
+
+        driver.get("https://bugcrowd.com/programs")
+        time.sleep(3)
+
+        # Collect all program links
+        program_links = []
+        cards = driver.find_elements(By.CLASS_NAME, "bc-card__header")
+        for card in cards:
+            href = card.get_attribute("href")
+            if href and href.startswith("https://bugcrowd.com/"):
+                program_links.append(href)
+
+    finally:
+        driver.quit()
+
+    print(f"Collected {len(program_links)} program URLs. Now scraping details with requests...")
 
     headers = {
-        "User-Agent": "Mozilla/5.0 (compatible; BugBountyBot/1.0)",
+        "User-Agent": "Mozilla/5.0",
         "Cookie": f"_crowdcontrol_session={session_cookie}"
     }
 
-    response = requests.get(programs_url, headers=headers)
-    if response.status_code != 200:
-        print(f"Failed to fetch Bugcrowd programs: {response.status_code}")
-        return programs
+    programs = []
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    cards = soup.find_all('a', class_='bc-card__header')
+    for url in program_links:
+        try:
+            resp = requests.get(url, headers=headers)
+            if resp.status_code != 200:
+                print(f"Failed to load: {url}")
+                continue
 
-    for card in cards:
-        program_name = card.text.strip()
-        program_url = base_url + card.get('href')
+            soup = BeautifulSoup(resp.text, 'html.parser')
+            program_name = soup.find('h1').text.strip() if soup.find('h1') else 'Unknown'
 
-        # Visit individual program page
-        program_resp = requests.get(program_url, headers=headers)
-        if program_resp.status_code != 200:
-            print(f"Failed to fetch program page: {program_url}")
-            continue
+            reward_tag = soup.find('div', class_='stat__reward-range')
+            reward = reward_tag.text.strip() if reward_tag else 'Unknown'
 
-        program_soup = BeautifulSoup(program_resp.text, 'html.parser')
+            scope_assets = []
+            scope_section = soup.find('div', class_='program__targets')
+            if scope_section:
+                rows = scope_section.find_all('div', class_='bc-table__row')
+                for row in rows:
+                    name_tag = row.find('span', class_='bc-table__column-name')
+                    if name_tag:
+                        scope_assets.append(name_tag.text.strip())
 
-        # Extract reward
-        reward_tag = program_soup.find('div', class_='stat__reward-range')
-        reward = reward_tag.text.strip() if reward_tag else 'Unknown'
+            programs.append({
+                'platform': 'Bugcrowd',
+                'program_name': program_name,
+                'domain': url,
+                'reward': reward,
+                'scope': ', '.join(scope_assets) if scope_assets else 'Unknown'
+            })
 
-        # Extract scope
-        scope_assets = []
-        scope_section = program_soup.find('div', class_='program__targets')
-        if scope_section:
-            asset_tags = scope_section.find_all('div', class_='bc-table__row')
-            for asset in asset_tags:
-                asset_name = asset.find('span', class_='bc-table__column-name')
-                if asset_name:
-                    scope_assets.append(asset_name.text.strip())
+        except Exception as e:
+            print(f"Error scraping {url}: {e}")
 
-        programs.append({
-            'program_name': program_name,
-            'domain': program_url,
-            'reward': reward,
-            'scope': ', '.join(scope_assets) if scope_assets else 'Unknown'
-        })
+    # Save results to CSV
+    if programs:
+        keys = programs[0].keys()
+        with open(output_file, 'w', newline='') as f:
+            writer = csv.DictWriter(f, fieldnames=keys)
+            writer.writeheader()
+            writer.writerows(programs)
 
-    print(f"Collected {len(programs)} Bugcrowd programs with detailed info.")
-    return programs
+    print(f"Scraped {len(programs)} programs and saved to {output_file}.")
