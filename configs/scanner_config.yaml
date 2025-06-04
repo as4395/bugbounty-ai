@@ -10,3 +10,9 @@ shodan:
   max_results: 50
 
 output_file: "data/processed/findings.json"
+
+zap:
+  api_key: "ZAP_API_KEY" # Your valid ZAP API key
+  port: 8090
+  address: "localhost"
+  output_file: "data/processed/zap_alerts.json"
