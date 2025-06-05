@@ -7,7 +7,7 @@ import yaml
 def load_openai_config(path='configs/openai_config.yaml'):
     with open(path, 'r') as file:
         config = yaml.safe_load(file)
-    return config.get('api_key'), config.get('model', 'gpt-4')
+    return config.get('OpenAI_API_Key'), config.get('model', 'gpt-4')
 
 class LLMHelper:
     def __init__(self):
