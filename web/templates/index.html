@@ -1,0 +1,33 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bug Bounty AI Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
+</head>
+<body>
+  <h1>Bug Bounty AI Workflow</h1>
+
+  <section>
+    <h2>Trigger Scan</h2>
+    <form id="scan-form">
+      <input type="text" id="target-ip" placeholder="Enter target IP/domain" required />
+      <button type="submit">Scan</button>
+    </form>
+    <pre id="scan-result"></pre>
+  </section>
+
+  <section>
+    <h2>View Report</h2>
+    <form id="report-form">
+      <input type="text" id="report-ip" placeholder="Enter target IP/domain" required />
+      <button type="submit">Load Report</button>
+    </form>
+    <pre id="report-output"></pre>
+  </section>
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
