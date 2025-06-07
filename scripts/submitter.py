@@ -11,9 +11,9 @@ def prepare_manual_submission(report, filename):
     with open(filename, 'w') as file:
         file.write("=== MANUAL SUBMISSION REQUIRED ===\n")
         file.write("Please log into the following platforms and submit manually:\n")
-        file.write("- HackerOne: https://hackerone.com/ (via program dashboard)\n")
-        file.write("- Bugcrowd: https://bugcrowd.com/ (via program dashboard)\n")
-        file.write("- Intigriti: https://app.intigriti.com/ (via program dashboard)\n\n")
+        file.write("- HackerOne: https://hackerone.com/\n")
+        file.write("- Bugcrowd: https://bugcrowd.com/\n")
+        file.write("- Intigriti: https://app.intigriti.com/\n\n")
         file.write("=== REPORT CONTENT ===\n\n")
         file.write(report)
 
