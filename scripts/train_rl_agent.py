@@ -11,6 +11,12 @@
 # ```bash
 # brew install pipx
 #
+# ```bash
+# pip install flask
+#
+# ```bash
+# pip3 install flask
+#
 # Usage (run the training script):
 # ```bash
 # python scripts/train_rl_agent.py
