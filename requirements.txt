@@ -8,3 +8,4 @@ openai
 pandas
 numpy
 flask
+torch
