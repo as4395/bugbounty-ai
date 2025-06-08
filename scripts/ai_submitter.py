@@ -3,6 +3,15 @@
 from models.rl_agent.dqn_agent import DQNAgent
 from models.rl_agent.rl_env import BugBountyEnv
 
+# Usage:
+# Train the model first using:
+# ```bash
+# python scripts/train_rl_agent.py
+#
+# Then run:
+# ```bash
+# python scripts/submitter.py
+
 # Load environment and agent
 env = BugBountyEnv()
 agent = DQNAgent(state_dim=2, action_dim=4)
