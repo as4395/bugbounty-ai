@@ -1,0 +1,52 @@
+<!--
+Purpose: Render a modular dashboard that visualizes DQN training metrics, reward, loss, and epsilon, using Chart.js.
+Requirements: dashboard.js via Flask at /dashboard.js
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DQN Training Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/dashboard.js" defer></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .chart-container {
+            width: 90%;
+            margin: 0 auto 50px;
+        }
+
+        canvas {
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 8px rgba(0,0,0,0.05);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>DQN Training Metrics</h2>
+
+    <div class="chart-container">
+        <canvas id="rewardChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="lossChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="epsilonChart"></canvas>
+    </div>
+</body>
+</html>
