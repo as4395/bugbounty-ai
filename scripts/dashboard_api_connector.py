@@ -2,11 +2,11 @@
 # Serve live anomaly data (rewards, losses, epsilons, and alerts) to the dashboard via a Flask API.
 
 # Requirements:
-# pip install flask
-
+#   pip install flask
+#
 # Usage:
-# python dashboard_api_connector.py
-# Then visit http://localhost:5002/api/metrics
+#   python dashboard_api_connector.py
+#   Then visit: http://localhost:5002/api/metrics
 
 from flask import Flask, jsonify
 from pathlib import Path
