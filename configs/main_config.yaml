@@ -1,0 +1,37 @@
+# Global Settings for Bug Bounty AI Workflow
+
+alert_threshold: 5
+
+email:
+  enabled: true
+  smtp_server: smtp.gmail.com
+  smtp_port: 465
+  sender_email: your_email@gmail.com        # REQUIRED: Replace with your actual sender email
+  sender_password: your_app_password        # REQUIRED: Replace your actual app password or environment variable
+  recipient_email: recipient@example.com    # REQUIRED: Replace with your actual recipient email
+
+slack:
+  enabled: true
+  webhook_url: https://hooks.slack.com/services/XXX/YYY/ZZZ  # REQUIRED: Replace with your actual Slack webhook url
+
+webhook:
+  enabled: true
+  url: https://example.com/alert # REQUIRED: Replace with your actual webhook url
+
+scan_targets:
+  # API Target: RESTful API booking endpoint (public testing API)
+  - url: https://api.restful-booker.herokuapp.com/booking
+    method: POST
+    type: api
+    json_template:
+      firstname: "FUZZ"
+      lastname: "Doe"
+
+  # Web Target: DVWA (Damn Vulnerable Web App) hosted locally
+  - url: http://127.0.0.1:8080/vulnerabilities/xss_r/
+    method: GET
+    type: web
+
+  # Binary Target: Locally compiled ELF binary for fuzz testing
+  - path: ./bin/crashme
+    type: binary
