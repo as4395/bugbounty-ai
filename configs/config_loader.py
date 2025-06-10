@@ -2,11 +2,11 @@
 # Load and validate global configuration from a YAML file (e.g., main_config.yaml).
 
 # Requirements:
-# pip install pyyaml
-
+#   pip install pyyaml
+#
 # Usage:
-# from configs.config_loader import load_config
-# config = load_config("configs/main_config.yaml")
+#   from configs.config_loader import load_config
+#   config = load_config("configs/main_config.yaml")
 
 import yaml
 from pathlib import Path
