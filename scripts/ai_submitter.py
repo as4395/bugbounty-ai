@@ -5,12 +5,10 @@ from models.rl_agent.rl_env import BugBountyEnv
 
 # Usage:
 # Train the model first using:
-# ```bash
-# python scripts/train_rl_agent.py
+#   python scripts/train_rl_agent.py
 #
 # Then run:
-# ```bash
-# python scripts/submitter.py
+#   python scripts/submitter.py
 
 # Load environment and agent
 env = BugBountyEnv()
