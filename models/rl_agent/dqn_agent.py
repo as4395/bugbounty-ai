@@ -1,5 +1,20 @@
-# Purpose: Define the Deep Q-Learning agent using a neural network, with training logic,
-# and experience replay, model saving/loading, and action selection using the epsilon-greedy strategy.
+# Purpose:
+#   Define the Deep Q-Learning agent using a neural network, with training logic,
+#   experience replay, model saving/loading, and action selection using the epsilon-greedy strategy.
+
+# Requirements:
+#   pip install torch torchvision numpy
+
+# Usage:
+#   from models.dqn_agent import DQNAgent
+#   agent = DQNAgent(state_dim=4, action_dim=2)
+#   action = agent.act([0.0, 0.1, 0.2, 0.3])
+#   agent.store((state, action, reward, next_state))
+#   loss = agent.train_step()
+#   agent.update_target()
+#   agent.decay_epsilon()
+#   agent.save()
+#   agent.load()
 
 import torch
 import torch.nn as nn
@@ -7,19 +22,6 @@ import torch.optim as optim
 import random
 import numpy as np
 from collections import deque
-
-# Requirements:
-# ```bash
-# pip install torchvision
-#
-# ```bash
-# pip3 install torchvision
-#
-# ```bash
-# pip install numpy
-#
-# ```bash
-# pip3 install numpy
 
 
 class DQN(nn.Module):
@@ -104,7 +106,7 @@ class DQNAgent:
         self.epsilon = max(self.epsilon * self.epsilon_decay, self.epsilon_min)
 
     def save(self, path="dqn_model.pt"):
-        """Saves the model to a .pt file."""
+        # Saves the model to a .pt file.
         torch.save(self.model.state_dict(), path)
 
     def load(self, path="dqn_model.pt"):
