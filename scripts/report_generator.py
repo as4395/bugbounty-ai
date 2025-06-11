@@ -1,5 +1,5 @@
 # Purpose:
-# Generate bug reports from scan findings and save them as text and CSV.
+#   Generate bug reports from scan findings and save them as text and CSV.
 
 import json
 import pandas as pd
