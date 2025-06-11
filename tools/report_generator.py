@@ -1,12 +1,12 @@
 # Purpose:
-# Generate an HTML summary report of vulnerabilities and anomalies for review or submission.
+#   Generate an HTML summary report of vulnerabilities and anomalies for review or submission.
 
 # Requirements:
-# pip install jinja2
+#   pip install jinja2
 
 # Usage:
-# from tools.report_generator import generate_html_report
-# generate_html_report(anomalies, output_path="reports/summary_report.html")
+#   from tools.report_generator import generate_html_report
+#   generate_html_report(anomalies, output_path="reports/summary_report.html")
 
 from jinja2 import Template
 from datetime import datetime
