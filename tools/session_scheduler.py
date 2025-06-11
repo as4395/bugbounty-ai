@@ -1,13 +1,13 @@
 # Purpose:
-# Automate scheduled execution of the zero_day_scanner to continuously monitor targets.
-# The session scheduler an be triggered manually or via cron/systemd/task scheduler.
+#   Automate scheduled execution of the zero_day_scanner to continuously monitor targets.
+#   The session scheduler an be triggered manually or via cron/systemd/task scheduler.
 
 # Requirements:
-# Standard library only
+#   Python standard library only
 
 # Usage:
-# python tools/session_scheduler.py
-# (Or run via cron: `@daily python /path/to/session_scheduler.py`)
+#   python tools/session_scheduler.py
+#   (Or run via cron: `@daily python /path/to/session_scheduler.py`)
 
 import time
 import subprocess
