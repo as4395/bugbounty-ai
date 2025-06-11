@@ -1,4 +1,5 @@
-# Purpose: Serve the enhanced DQN training dashboard with reward, loss, and epsilon visualizations.
+# Purpose: 
+#   Serve the enhanced DQN training dashboard with reward, loss, and epsilon visualizations.
 
 # Requirements:
 #   pip install flask
@@ -23,17 +24,17 @@ SCRIPTS_PATH = Path("scripts")
 
 @app.route("/")
 def serve_dashboard():
-    """Serve the main dashboard HTML page."""
+    # Serve the main dashboard HTML page.
     return send_from_directory(SCRIPTS_PATH.resolve(), "dashboard.html")
 
 @app.route("/dashboard.js")
 def serve_js():
-    """Serve the dashboard JavaScript file."""
+    # Serve the dashboard JavaScript file.
     return send_from_directory(SCRIPTS_PATH.resolve(), "dashboard.js")
 
 @app.route("/api/enhanced-log")
 def serve_log():
-    """Serve reward, loss, and epsilon logs as JSON."""
+    # Serve reward, loss, and epsilon logs as JSON.
     if not LOG_PATH.exists():
         return jsonify({"error": "Log file not found."}), 404
     with open(LOG_PATH, "r") as f:
