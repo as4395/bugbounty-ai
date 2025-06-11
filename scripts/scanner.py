@@ -1,5 +1,5 @@
 # Purpose:
-# Scan approved targets using real Nmap and Shodan, focusing on top 100 common ports.
+#   Scan approved targets using real Nmap and Shodan, focusing on top 100 common ports.
 
 import csv
 import json
