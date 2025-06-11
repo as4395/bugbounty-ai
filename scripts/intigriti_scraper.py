@@ -1,5 +1,5 @@
 # Purpose:
-# Use Selenium to authenticate and load Intigriti programs, then Requests + BeautifulSoup to extract program details.
+#   Use Selenium to authenticate and load Intigriti programs, then Requests + BeautifulSoup to extract program details.
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
