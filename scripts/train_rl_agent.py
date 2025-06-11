@@ -1,28 +1,14 @@
-# Purpose: Train the DQN agent using simulated bug report data and log rewards to a file.
+# Purpose:
+#   Train the DQN agent using simulated bug report data and log rewards to a file.
 
 # Requirements:
-# ```bash
-# pip install torchvision
-#
-# ``bash
-# pip3 install torchvision
-#
-# Alternatively, installation can be done through homebrew:
-# ```bash
-# brew install pipx
-#
-# ```bash
-# pip install flask
-#
-# ```bash
-# pip3 install flask
-#
-# Usage (run the training script):
-# ```bash
-# python scripts/train_rl_agent.py
-#
-# ```bash
-# python3 scripts/train_rl_agent.py
+#   pip install torch torchvision flask
+#   (Optional) Install pip via Homebrew:
+#     brew install pipx
+
+# Usage:
+#   python scripts/train_rl_agent.py
+#   python3 scripts/train_rl_agent.py
 
 from models.rl_agent.rl_env import BugBountyEnv
 from models.rl_agent.dqn_agent import DQNAgent
