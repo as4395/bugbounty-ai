@@ -1,0 +1,47 @@
+/* static/styles.css */
+/* Purpose: Custom CSS for Bug Bounty AI Dashboard */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 30px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+h1, h2 {
+  color: #222;
+}
+
+form {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+input[type="text"] {
+  padding: 8px;
+  width: 300px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+pre {
+  background: #1e1e1e;
+  color: #00ff7f;
+  padding: 15px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
