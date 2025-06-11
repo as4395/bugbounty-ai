@@ -1,5 +1,5 @@
 # Purpose:
-# Serve live anomaly data (rewards, losses, epsilons, and alerts) to the dashboard via a Flask API.
+#   Serve live anomaly data (rewards, losses, epsilons, and alerts) to the dashboard via a Flask API.
 
 # Requirements:
 #   pip install flask
