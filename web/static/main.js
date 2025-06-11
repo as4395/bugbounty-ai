@@ -1,5 +1,8 @@
-// static/main.js
-// Purpose: Handle scan + report form submissions and dynamically show results
+// Purpose: Entry point — wire up DOM interactions and connect UI to API.
+
+import { postScan, fetchReport } from "./api.js";
+import { showLoading, renderJSON, renderError } from "./ui.js";
+import { sanitizeInput, isValidTarget } from "./utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const scanForm = document.getElementById("scan-form");
@@ -8,39 +11,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const reportForm = document.getElementById("report-form");
   const reportOutput = document.getElementById("report-output");
 
-  // Handle Scan Form Submission
   scanForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const target = document.getElementById("target-ip").value.trim();
-    if (!target) return (scanResult.textContent = "Please enter a target IP/domain.");
+    const rawInput = document.getElementById("target-ip").value;
+    const target = sanitizeInput(rawInput);
 
-    scanResult.textContent = "Scanning...";
+    if (!isValidTarget(target)) {
+      renderError(scanResult, "Please enter a valid target.");
+      return;
+    }
+
+    showLoading(scanResult, "Scanning...");
+
     try {
-      const res = await fetch("/scan", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ target })
-      });
-      const data = await res.json();
-      scanResult.textContent = JSON.stringify(data, null, 2);
+      const result = await postScan(target);
+      renderJSON(scanResult, result);
     } catch (err) {
-      scanResult.textContent = "Error performing scan.";
+      renderError(scanResult, "Error performing scan.");
     }
   });
 
-  // Handle Report Viewer Submission
   reportForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const ip = document.getElementById("report-ip").value.trim();
-    if (!ip) return (reportOutput.textContent = "Please enter an IP/domain.");
+    const rawInput = document.getElementById("report-ip").value;
+    const ip = sanitizeInput(rawInput);
 
-    reportOutput.textContent = "Loading report...";
+    if (!isValidTarget(ip)) {
+      renderError(reportOutput, "Please enter a valid IP or domain.");
+      return;
+    }
+
+    showLoading(reportOutput, "Loading report...");
+
     try {
-      const res = await fetch(`/report?ip=${encodeURIComponent(ip)}`);
-      const data = await res.json();
-      reportOutput.textContent = JSON.stringify(data, null, 2);
+      const result = await fetchReport(ip);
+      renderJSON(reportOutput, result);
     } catch (err) {
-      reportOutput.textContent = "Error loading report.";
+      renderError(reportOutput, "Error loading report.");
     }
   });
 });
