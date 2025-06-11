@@ -1,5 +1,5 @@
 # Purpose:
-# Provides a clean interface for interacting with OpenAI's GPT models.
+#   Provides a clean interface for interacting with OpenAI's GPT models.
 
 import openai
 import yaml
