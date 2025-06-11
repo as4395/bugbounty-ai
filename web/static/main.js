@@ -1,4 +1,4 @@
-// main.js — handles form interactions and fetches
+// static/main.js — handles form interactions and fetches
 
 document.addEventListener("DOMContentLoaded", () => {
   const scanForm = document.getElementById("scan-form");
@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle Scan Form Submission
   scanForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const target = document.getElementById("target-ip").value;
+    const target = document.getElementById("target-ip").value.trim();
+    if (!target) return (scanResult.textContent = "Please enter a target.");
 
-    scanResult.textContent = "Scanning...";
-
+    scanResult.textContent = "🔍 Scanning...";
     try {
       const res = await fetch("/scan", {
         method: "POST",
@@ -23,23 +23,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json();
       scanResult.textContent = JSON.stringify(data, null, 2);
     } catch (err) {
-      scanResult.textContent = "Error performing scan.";
+      scanResult.textContent = "❌ Error performing scan.";
     }
   });
 
   // Handle Report Viewer
   reportForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const ip = document.getElementById("report-ip").value;
+    const ip = document.getElementById("report-ip").value.trim();
+    if (!ip) return (reportOutput.textContent = "Please enter an IP.");
 
-    reportOutput.textContent = "Loading report...";
-
+    reportOutput.textContent = "📄 Loading report...";
     try {
       const res = await fetch(`/report?ip=${encodeURIComponent(ip)}`);
       const data = await res.json();
       reportOutput.textContent = JSON.stringify(data, null, 2);
     } catch (err) {
-      reportOutput.textContent = "Error loading report.";
+      reportOutput.textContent = "❌ Error loading report.";
     }
   });
 });
