@@ -64,3 +64,16 @@ pre {
   white-space: pre-wrap;
   overflow-x: auto;
 }
+
+#anomalies-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+#anomalies-list li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+#anomalies-list li strong {
+  color: #d9534f;
+  margin-right: 8px;
+}
