@@ -6,6 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bug Bounty AI Dashboard</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
+  <style>
+    pre {
+      background: #1e1e1e;
+      color: #00ff7f;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    form {
+      margin-bottom: 2rem;
+    }
+  </style>
 </head>
 <body>
   <h1>Bug Bounty AI Workflow</h1>
@@ -16,7 +30,7 @@
       <input type="text" id="target-ip" placeholder="Enter target IP/domain" required />
       <button type="submit">Scan</button>
     </form>
-    <pre id="scan-result"></pre>
+    <pre id="scan-result">Scan output will appear here.</pre>
   </section>
 
   <section>
@@ -25,7 +39,7 @@
       <input type="text" id="report-ip" placeholder="Enter target IP/domain" required />
       <button type="submit">Load Report</button>
     </form>
-    <pre id="report-output"></pre>
+    <pre id="report-output">Report output will appear here.</pre>
   </section>
 
   <script src="{{ url_for('static', filename='main.js') }}"></script>
