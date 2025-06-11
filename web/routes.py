@@ -1,5 +1,5 @@
 # Purpose:
-# Define Flask routes for scan and report view.
+#   Define Flask routes for scan and report view.
 
 from flask import request, jsonify, render_template
 from web.utils import trigger_scan, load_report
