@@ -1,5 +1,5 @@
 # Purpose:
-# Reusable Nmap scanner that runs a top-ports scan on a given IP address.
+#   Reusable Nmap scanner that runs a top-ports scan on a given IP address.
 
 import subprocess
 import yaml
