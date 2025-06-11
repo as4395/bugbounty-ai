@@ -1,5 +1,5 @@
 # Purpose:
-# Check reports for compliance with platform rules.
+#   Check reports for compliance with platform rules.
 
 import pandas as pd
 import yaml
