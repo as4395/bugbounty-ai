@@ -1,4 +1,5 @@
-# Purpose: Use the trained RL agent to recommend which platform a bug report should be submitted to.
+# Purpose: 
+#   Use the trained RL agent to recommend which platform a bug report should be submitted to.
 
 from models.rl_agent.dqn_agent import DQNAgent
 from models.rl_agent.rl_env import BugBountyEnv
