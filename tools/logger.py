@@ -1,5 +1,5 @@
 # Purpose:
-# Main logging tool for consistent status messages across the project.
+#   Main logging tool for consistent status messages across the project.
 
 import datetime
 
