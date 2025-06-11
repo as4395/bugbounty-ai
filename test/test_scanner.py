@@ -1,5 +1,5 @@
 # Purpose:
-# Unit tests for scanning functions using Nmap and Shodan.
+#   Unit tests for scanning functions using Nmap and Shodan.
 
 import json
 import os
