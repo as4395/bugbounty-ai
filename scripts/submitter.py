@@ -1,5 +1,5 @@
 # Purpose:
-# Prepare bug reports for manual submission to platforms and log prep status.
+#   Prepare bug reports for manual submission to platforms and log prep status.
 
 def load_report(filename):
     print(f"Loading report from {filename}...")
