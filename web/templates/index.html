@@ -5,21 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bug Bounty AI Dashboard</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
-  <style>
-    pre {
-      background: #1e1e1e;
-      color: #00ff7f;
-      padding: 1rem;
-      border-radius: 6px;
-      overflow-x: auto;
-      white-space: pre-wrap;
-    }
 
-    form {
-      margin-bottom: 2rem;
-    }
-  </style>
+  <!-- Water.css base + custom styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 </head>
 <body>
   <h1>Bug Bounty AI Workflow</h1>
@@ -42,6 +31,7 @@
     <pre id="report-output">Report output will appear here.</pre>
   </section>
 
+  <!-- Load main JS file -->
   <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>
