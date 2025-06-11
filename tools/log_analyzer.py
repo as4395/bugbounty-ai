@@ -1,12 +1,13 @@
 # Purpose:
-# Analyze and summarize findings from zero-day fuzzing stored in logs/zero_day_anomalies.json.
-# Provides a terminal report of anomaly types, payloads, and scan timestamps.
+#   Analyze and summarize findings from zero-day fuzzing stored in logs/zero_day_anomalies.json.
+#   Provides a terminal report of anomaly types, payloads, and scan timestamps.
 
 # Requirements:
-# pip install pandas
+#   pip install pandas
 
 # Usage:
-# python tools/log_analyzer.py
+#   python tools/log_analyzer.py
+
 
 import json
 from pathlib import Path
