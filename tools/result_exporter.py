@@ -1,11 +1,11 @@
 # Purpose:
-# Export zero-day anomaly results from logs/zero_day_anomalies.json into CSV or simplified JSON format.
+#   Export zero-day anomaly results from logs/zero_day_anomalies.json into CSV or simplified JSON format.
 
 # Requirements:
-# pip install pandas
+#   pip install pandas
 
 # Usage:
-# python tools/result_exporter.py
+#   python tools/result_exporter.py
 
 import json
 import pandas as pd
