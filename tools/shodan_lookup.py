@@ -1,9 +1,8 @@
 # Purpose:
-# Lookup a given IP using the Shodan API and return structured metadata.
+#   Lookup a given IP using the Shodan API and return structured metadata.
 
 # Required Installation:
-# ```bash
-# pip install shodan
+#   pip install shodan
 
 import shodan
 import yaml
