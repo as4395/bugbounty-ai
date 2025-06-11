@@ -1,15 +1,18 @@
-# Purpose: Perform fuzz testing on RESTful APIs by injecting payloads into URL paths, query parameters, and JSON bodies to discover unexpected behavior or vulnerabilities.
+# Purpose:
+#   Perform fuzz testing on RESTful APIs by injecting payloads into URL paths,
+#   query parameters, and JSON bodies to discover unexpected behavior or vulnerabilities.
 
-# Requirements: 
-# pip install requests
+# Requirements:
+#   pip install requests
 
 # Usage:
-# from tools.api_fuzzer import run_api_fuzzer
+#   from tools.api_fuzzer import run_api_fuzzer
 #
-# results = run_api_fuzzer(
-#   "https://api.restful-booker.herokuapp.com/booking",
-    # method="POST",
-    # body_template={"firstname": "FUZZ", "lastname": "Doe"}
+#   results = run_api_fuzzer(
+#       "https://api.restful-booker.herokuapp.com/booking",
+#       method="POST",
+#       body_template={"firstname": "FUZZ", "lastname": "Doe"}
+#   )
 
 
 import requests
