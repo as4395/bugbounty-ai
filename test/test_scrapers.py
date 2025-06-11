@@ -1,10 +1,8 @@
 # Purpose:
-# Unit tests for scraping functions from HackerOne, Bugcrowd, and Intigriti.
+#   Unit tests for scraping functions from HackerOne, Bugcrowd, and Intigriti.
 
 # Requirements:
-# Install pytest in your environment:
-# ```bash
-# pip install pytest
+#   pip install pytest
 
 import pytest
 from unittest.mock import patch
