@@ -1,5 +1,5 @@
 # Purpose:
-# Clean and sanitize HTML strings into plain readable text.
+#   Clean and sanitize HTML strings into plain readable text.
 
 from bs4 import BeautifulSoup
 
