@@ -1,5 +1,5 @@
 # Purpose:
-# Use Selenium to load HackerOne programs, then Requests + BeautifulSoup to scrape details.
+#   Use Selenium to load HackerOne programs, then Requests + BeautifulSoup to scrape details.
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
