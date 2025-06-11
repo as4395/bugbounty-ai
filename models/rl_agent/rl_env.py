@@ -1,5 +1,6 @@
-# Purpose: Simulate a simplified bug bounty environment for training a reinforcement learning agent.
-# Each report has a type and severity. Actions determine where to submit or skip, and rewards are based on severity and simulated platform responses.
+# Purpose:
+#   Simulate a simplified bug bounty environment for training a reinforcement learning agent.
+#   Each report has a type and severity. Actions determine where to submit or skip, and rewards are based on severity and simulated platform responses.
 
 import numpy as np
 import random
@@ -23,7 +24,7 @@ class BugBountyEnv:
         self.state = None
 
     def reset(self):
-        # Start a new episode by generating a fresh report.
+        # Start a new episode by generating a fresh report
         self.state = self._generate_report()
         return self._encode_state(self.state)
 
@@ -39,7 +40,7 @@ class BugBountyEnv:
         return next_state, reward, done, {}
 
     def _generate_report(self):
-        # Randomly create a simulated bug report.
+        # Randomly create a simulated bug report
         return {
             'type': random.choice(self.report_types),
             'severity': random.choice(self.severities)
@@ -55,7 +56,7 @@ class BugBountyEnv:
         return np.array([type_index, severity_index], dtype=np.float32)
 
     def _simulate_reward(self, report, action):
-        # Determine the reward based on the severity of the report and the action taken.
+        # Determine the reward based on the severity of the report and the action taken
         if action == 0:
             return 0  # Skip = neutral
 
