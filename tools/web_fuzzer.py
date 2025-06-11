@@ -1,14 +1,13 @@
 # Purpose:
-# Perform fuzz testing against web application URLs by injecting payloads into GET parameters.
-# Detects anomalies in responses that may indicate input validation issues or unhandled exceptions.
+#   Perform fuzz testing against web application URLs by injecting payloads into GET parameters.
+#   Detects anomalies in responses that may indicate input validation issues or unhandled exceptions.
 
 # Requirements:
-# pip install requests
+#   pip install requests
 
 # Usage:
-# from tools.web_fuzzer import run_web_fuzzer
-#
-# results = run_web_fuzzer("http://example.com/search?q=FUZZ")
+#   from tools.web_fuzzer import run_web_fuzzer
+#   results = run_web_fuzzer("http://example.com/search?q=FUZZ")
 
 import requests
 
