@@ -1,18 +1,16 @@
-<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bug Bounty AI Dashboard</title>
-
-  <!-- Water.css base + custom styles -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 </head>
 <body>
   <h1>Bug Bounty AI Workflow</h1>
 
+  <!-- Trigger Scan -->
   <section>
     <h2>Trigger Scan</h2>
     <form id="scan-form">
@@ -22,6 +20,13 @@
     <pre id="scan-result">Scan output will appear here.</pre>
   </section>
 
+  <!-- Ranked Anomalies -->
+  <section>
+    <h2>Ranked Anomalies</h2>
+    <div id="anomalies-list">No anomalies yet.</div>
+  </section>
+
+  <!-- View Saved Report -->
   <section>
     <h2>View Report</h2>
     <form id="report-form">
@@ -31,7 +36,6 @@
     <pre id="report-output">Report output will appear here.</pre>
   </section>
 
-  <!-- Load modular JS -->
   <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>
