@@ -1,12 +1,12 @@
 # Purpose:
-# Dispatch alerts when critical anomalies (score ≥ threshold) are found in zero-day scan logs.
-# It supports terminal output and extends to email, Slack, and generic webhooks.
+#   Dispatch alerts when critical anomalies (score ≥ threshold) are found in zero-day scan logs.
+#   Supports terminal output, and can be extended to email, Slack, and generic webhooks.
 
 # Requirements:
-# pip install pandas requests
+#   pip install pandas requests
 
 # Usage:
-# python tools/alert_dispatcher.py
+#   python tools/alert_dispatcher.py
 
 import json
 import smtplib
