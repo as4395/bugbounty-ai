@@ -1,12 +1,12 @@
 # Purpose:
-# Upload validated bug bounty reports to supported platforms or assist with manual submission.
+#   Upload validated bug bounty reports to supported platforms or assist with manual submission.
 
 # Requirements:
-# pip install requests
+#   pip install requests
 
 # Usage:
-# from tools.report_uploader import upload_report
-# upload_report("submissions/final_submission.txt", platform="hackerone")
+#   from tools.report_uploader import upload_report
+#   upload_report("submissions/final_submission.txt", platform="hackerone")
 
 import webbrowser
 from pathlib import Path
