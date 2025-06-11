@@ -1,5 +1,5 @@
 # Purpose:
-# Utility functions to trigger scans and load reports for the web interface.
+#   Utility functions to trigger scans and load reports for the web interface.
 
 import json
 import os
