@@ -1,5 +1,5 @@
 # Purpose:
-# Launch the Flask web interface for the Bug Bounty AI Workflow system.
+#   Launch the Flask web interface for the Bug Bounty AI Workflow system.
 
 from flask import Flask
 from routes import register_routes
