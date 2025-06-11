@@ -1,9 +1,9 @@
 # Purpose:
-# Centralized repository for categorized fuzz payloads used across API, web, and binary fuzzers.
+#   Centralized repository for categorized fuzz payloads used across API, web, and binary fuzzers.
 
 # Usage:
-# from tools.payload_library import PAYLOADS
-# sql_payloads = PAYLOADS["sql_injection"]
+#   from tools.payload_library import PAYLOADS
+#   sql_payloads = PAYLOADS["sql_injection"]
 
 PAYLOADS = {
     "xss": [
