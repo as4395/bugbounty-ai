@@ -1,5 +1,5 @@
 # Purpose:
-# Load and validate global configuration from a YAML file (e.g., main_config.yaml).
+#   Load and validate global configuration from a YAML file (e.g., main_config.yaml).
 
 # Requirements:
 #   pip install pyyaml
