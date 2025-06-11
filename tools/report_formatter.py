@@ -1,5 +1,5 @@
 # Purpose:
-# Format scan results into clean summaries for LLMs or reports.
+#   Format scan results into clean summaries for LLMs or reports.
 
 def format_single_entry(entry):
     ip = entry.get('ip', 'Unknown')
