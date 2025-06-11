@@ -1,12 +1,12 @@
 # Purpose:
-# Analyze and rank anomaly findings from zero-day fuzzing logs by severity.
-# Outputs a ranked list of issues based on vector type, response codes, and error content.
+#   Analyze and rank anomaly findings from zero-day fuzzing logs by severity.
+#   Outputs a ranked list of issues based on vector type, response codes, and error content.
 
 # Requirements:
-# pip install pandas
+#   pip install pandas
 
 # Usage:
-# python tools/anomaly_ranker.py
+#   python tools/anomaly_ranker.py
 
 import json
 from pathlib import Path
@@ -74,6 +74,5 @@ def main():
     output_path = Path("reports/ranked_anomalies.csv")
     df_sorted.to_csv(output_path, index=False)
     print(f"Full ranked list exported to: {output_path}")
-
 if __name__ == "__main__":
     main()
