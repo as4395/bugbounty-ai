@@ -1,9 +1,8 @@
 # Purpose:
-# Use OWASP ZAP to scan a target web application and export alerts using YAML config.
+#   Use OWASP ZAP to scan a target web application and export alerts using YAML config.
 
 # Make sure to start ZAP with:
-# ```bash
-# zap.sh -daemon -port 8090 -config api.key=ZAP_API_KEY
+#   zap.sh -daemon -port 8090 -config api.key=ZAP_API_KEY
 
 import time
 import json
