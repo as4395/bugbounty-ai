@@ -1,5 +1,5 @@
 # Purpose:
-# Unit tests for the report generator functions.
+#   Unit tests for the report generator functions.
 
 import pandas as pd
 # The test file is importing these functions from the report_generator.py file inside the scripts folder.
