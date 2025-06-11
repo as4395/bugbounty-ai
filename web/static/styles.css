@@ -41,6 +41,25 @@ pre {
   background: #1e1e1e;
   color: #00ff7f;
   padding: 15px;
+
+.alert {
+  padding: 10px;
+  margin: 10px 0;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.alert-info {
+  background-color: #e7f3fe;
+  color: #31708f;
+}
+.alert-success {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+.alert-error {
+  background-color: #f2dede;
+  color: #a94442;
+}
   border-radius: 6px;
   white-space: pre-wrap;
   overflow-x: auto;
